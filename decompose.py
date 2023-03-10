@@ -50,7 +50,7 @@ def tt_decomposition_conv_layer(layer, pca_ratio):
     return nn.Sequential(*new_layers)
 
 
-def _decompose(module, pca_ratio, ignore_list=['init_block', 'identity_conv']):
+def _decompose(module, pca_ratio, ignore_list):
     if isinstance(module, nn.modules.conv.Conv2d):
         conv_layer = module
         try:
@@ -68,7 +68,7 @@ def _decompose(module, pca_ratio, ignore_list=['init_block', 'identity_conv']):
             return module
 
 
-def decompose(model, pca_ratio, ignore_list=['init_block', 'identity_conv']):
+def decompose(model, pca_ratio, ignore_list=[]):
     tl.set_backend('pytorch')
     model = _decompose(model, pca_ratio, ignore_list)
     return model
