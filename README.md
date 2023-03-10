@@ -9,9 +9,9 @@ The amount of compression is controlled by choosing the amount of explained vari
 
 ## How to use the method
 
-* load a pretrained model
-* decompose with the decompose function
-* fine tune for a couple of epochs (1-10 is usually enough from experiments)
+* Load a pretrained model
+* Decompose the model with the decompose function
+* Fine tune for a couple of epochs (1-10 is usually enough from experiments)
 
 ### Example usage
 
