@@ -58,14 +58,14 @@ def _decompose(module, pca_ratio, ignore_list):
         except:
             module = module
         return module
-    else:
-        if len(module._modules) == 0:
-            return module
-        else:
-            for key in module._modules.keys():
-                if key not in ignore_list:
-                    module._modules[key] = _decompose(module._modules[key], pca_ratio, ignore_list)
-            return module
+        
+    if len(module._modules) == 0:
+        return module
+        
+    for key in module._modules.keys():
+        if key not in ignore_list:
+            module._modules[key] = _decompose(module._modules[key], pca_ratio, ignore_list)
+    return module
 
 
 def decompose(model, pca_ratio, ignore_list=[]):
